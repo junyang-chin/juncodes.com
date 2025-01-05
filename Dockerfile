@@ -10,7 +10,6 @@ COPY . .
 
 RUN npm run build
 
-
-FROM nginx:stable-alpine
+FROM nginx:stable-alpine AS final
 
 COPY --from=build /app/dist /usr/share/nginx/html
